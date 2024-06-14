@@ -1,4 +1,4 @@
-# Use the official Python image from the Docker Hub
+و--ن# Use the official Python image from the Docker Hub
 FROM python:3.9
 
 # Set the working directory in the container
@@ -17,4 +17,4 @@ EXPOSE 8000
 ENV NAME FastAPIApp
 
 # Run app.py when the container launches
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "$PORT"]
