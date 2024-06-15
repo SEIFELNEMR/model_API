@@ -1,5 +1,5 @@
 # Use the official Python image from the Docker Hub
-FROM python:3.11
+FROM python:3.11.0
 
 # Set the working directory in the container
 WORKDIR /app
@@ -14,7 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Define environment variable
-ENV NAME FastAPIApp
+ENV NAME model_API
 
 # Run app.py when the container launches
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "$PORT"]
+CMD ["python", "main.py"]
+#CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "$PORT"]
