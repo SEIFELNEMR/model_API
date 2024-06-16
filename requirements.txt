@@ -1,9 +1,9 @@
 fastapi==0.104.0
 fastapi-session==0.2.7
 uvicorn==0.23.2
-numpy==1.26.1
+numpy==1.23.5  # Compatible version with TensorFlow 2.12.0
 tensorflow==2.12.0
 Pillow==10.1.0
 matplotlib==3.8.2
-kivy==2.2.1  # Stable version of Kivy
+kivy==2.2.1
 keras==2.12.0  # Version compatible with TensorFlow 2.12.0
