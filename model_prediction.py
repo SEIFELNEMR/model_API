@@ -7,13 +7,11 @@ from tensorflow.keras.models import load_model
 
 # Load your models without loading the optimizer state
 model1 = load_model('Plant_disease_Efficient_NetB0.keras', compile=False)
-model2 = load_model('plant_disease_InceptionV3.keras', compile=False)
-model3 = load_model('trained_plant_disease_model.keras', compile=False)
+model2 = load_model('trained_plant_disease_model.keras', compile=False)
 
 # Optionally, compile your models if you need to use them for further training
 model1.compile(optimizer='rmsprop', loss='categorical_crossentropy')
-model2.compile(optimizer='rmsprop', loss='categorical_crossentropy')
-model3.compile(optimizer='adam', loss='categorical_crossentropy')
+model2.compile(optimizer='adam', loss='categorical_crossentropy')
 
 # List of class names
 class_name = ['Apple___Apple_scab', 'Apple___Black_rot', 'Apple___Cedar_apple_rust', 'Apple___healthy',
@@ -42,15 +40,13 @@ def predict_disease(image_path):
     # Make predictions
     pred1 = model1.predict(input_arr)
     pred2 = model2.predict(input_arr)
-    pred3 = model3.predict(input_arr)
 
     # Get the class with the highest predicted probability for each model
     pred1_class = np.argmax(pred1, axis=1)[0]
     pred2_class = np.argmax(pred2, axis=1)[0]
-    pred3_class = np.argmax(pred3, axis=1)[0]
 
     # Combine predictions and find the most common one
-    predictions = [pred1_class, pred2_class, pred3_class]
+    predictions = [pred1_class, pred2_class]
     common_prediction = Counter(predictions).most_common(1)[0][0]
 
     # Get the class name for the most common prediction
